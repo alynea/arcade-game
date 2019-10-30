@@ -88,23 +88,23 @@ Player.prototype.render = function(){
 
 Player.prototype.handleInput = function(keyPress){
     if (keyPress == "left" && this.x != 0){
-        this.x -= 100;       
+        this.x -= 50;       
     }
-    if (keyPress == "right" && this.x <= 300){
-        this.x +=100;
+    if (keyPress == "right" && this.x <= 350){
+        this.x += 50;
     }
-    if (keyPress== "up" && this.y != 0){
-        this.y -= 100;
+    if (keyPress== "up" && this.y > -10){
+        this.y -= 50;
     }
-    if (keyPress== "down" && this.y <= 300){
-        this.y += 100;
+    if (keyPress== "down" && this.y <= 350){
+        this.y += 50;
     }
 
 };
 
 let player = new Player();
-player.x = 0;
-player.y = 400;
+// player.x = 0;
+// player.y = 350;
 // Now instantiate your objects.
 // Place all enemy objects in an array called allEnemies
 // Place the player object in a variable called player
