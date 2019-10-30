@@ -1,4 +1,13 @@
+function setSpeed(bug){
+    bug.speed = randomSpeed();
+    
+}
 
+function randomSpeed() {
+    var x = Math.floor((Math.random() * 200)+ 30);
+     return x
+  }
+  
 // Enemies our player must avoid
 var Enemy = function() {
     // Variables applied to each of our instances go here,
@@ -15,6 +24,15 @@ Enemy.prototype.update = function(dt) {
     // You should multiply any movement by the dt parameter
     // which will ensure the game runs at the same speed for
     // all computers.
+    
+    if (this.x < window.canvasWidth){
+        if (dt != 0){
+            this.x =  this.x + (this.speed * dt);
+        }        
+    } else{
+        this.x = 0;
+    }
+    
 };
 
 // Draw the enemy on the screen, required method for game
@@ -24,12 +42,34 @@ Enemy.prototype.render = function() {
 
 
 let bug1 = new Enemy();
-bug1.x = 100;
-bug1.y = 200;
+bug1.x = 10;
+bug1.y = 50;
+
+
+let bug2 = new Enemy();
+bug2.x = 100;
+bug2.y = 125;
+
+
+let bug3 = new Enemy();
+bug3.x = 40;
+bug3.y = 175;
+
+
+let bug4 = new Enemy();
+bug4.x = 100;
+bug4.y = 225;
+
+
+setInterval(setSpeed(bug1),500);
+setInterval(setSpeed(bug2),1000);
+setInterval(setSpeed(bug3),2000);
+setInterval(setSpeed(bug4),1500);
+
 
 let allEnemies = [];
 
-allEnemies.push(bug1);
+allEnemies.push(bug1, bug2, bug3, bug4);
 window.allEnemies = allEnemies;
 // Now write your own player class
 // This class requires an updßate(), render() and
