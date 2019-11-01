@@ -1,15 +1,18 @@
-function setSpeed(bug){
+
+
+
+function setSpeed(bug) {
     bug.speed = randomSpeed();
-    
+
 }
 
 function randomSpeed() {
-    var x = Math.floor((Math.random() * 200)+ 30);
-     return x
-  }
-  
+    var x = Math.floor((Math.random() * 200) + 30);
+    return x
+}
+
 // Enemies our player must avoid
-var Enemy = function() {
+var Enemy = function () {
     // Variables applied to each of our instances go here,
     // we've provided one for you to get started
 
@@ -20,23 +23,23 @@ var Enemy = function() {
 
 // Update the enemy's position, required method for game
 // Parameter: dt, a time delta between ticks
-Enemy.prototype.update = function(dt) {
+Enemy.prototype.update = function (dt) {
     // You should multiply any movement by the dt parameter
     // which will ensure the game runs at the same speed for
     // all computers.
-    
-    if (this.x < window.canvasWidth){
-        if (dt != 0){
-            this.x =  this.x + (this.speed * dt);
-        }        
-    } else{
+
+    if (this.x < window.canvasWidth) {
+        if (dt != 0) {
+            this.x = this.x + (this.speed * dt);
+        }
+    } else {
         this.x = 0;
     }
-    
+
 };
 
 // Draw the enemy on the screen, required method for game
-Enemy.prototype.render = function() {
+Enemy.prototype.render = function () {
     ctx.drawImage(Resources.get(this.sprite), this.x, this.y);
 };
 
@@ -61,10 +64,10 @@ bug4.x = 100;
 bug4.y = 225;
 
 
-setInterval(setSpeed(bug1),500);
-setInterval(setSpeed(bug2),1000);
-setInterval(setSpeed(bug3),2000);
-setInterval(setSpeed(bug4),1500);
+setInterval(setSpeed(bug1), 500);
+setInterval(setSpeed(bug2), 1000);
+setInterval(setSpeed(bug3), 2000);
+setInterval(setSpeed(bug4), 1500);
 
 
 let allEnemies = [];
@@ -74,29 +77,34 @@ window.allEnemies = allEnemies;
 // Now write your own player class
 // This class requires an updßate(), render() and
 // a handleInput() method.
-var Player= function (){
+var Player = function () {
     this.sprite = 'images/char-boy.png'
 }
 
-Player.prototype.update = function(dt){
-
+Player.prototype.update = function () {
+    console.log(`The player's y co-ordinates is ${this.y}`)
+    // check player's position to complete the game
+    if (this.y <= 10) {
+        clickButton();
+    }
 };
 
-Player.prototype.render = function(){
+Player.prototype.render = function () {
     ctx.drawImage(Resources.get(this.sprite), this.x, this.y);
 }
 
-Player.prototype.handleInput = function(keyPress){
-    if (keyPress == "left" && this.x != 0){
-        this.x -= 50;       
+Player.prototype.handleInput = function (keyPress) {
+
+    if (keyPress == "left" && this.x != 0) {
+        this.x -= 50;
     }
-    if (keyPress == "right" && this.x <= 350){
+    if (keyPress == "right" && this.x <= 350) {
         this.x += 50;
     }
-    if (keyPress== "up" && this.y > -10){
+    if (keyPress == "up" && this.y > -10) {
         this.y -= 50;
     }
-    if (keyPress== "down" && this.y <= 350){
+    if (keyPress == "down" && this.y <= 350) {
         this.y += 50;
     }
 
@@ -112,7 +120,7 @@ let player = new Player();
 
 // This listens for key presses and sends the keys to your
 // Player.handleInput() method. You don't need to modify this.
-document.addEventListener('keyup', function(e) {
+document.addEventListener('keyup', function (e) {
     var allowedKeys = {
         37: 'left',
         38: 'up',
@@ -123,3 +131,33 @@ document.addEventListener('keyup', function(e) {
     player.handleInput(allowedKeys[e.keyCode]);
 });
 
+// A pop message appears after the game is finished
+
+function clickButton() {
+    document.getElementById("button").click();
+}
+
+window.onload = function () {
+
+    let modal = document.getElementById("myModal");
+    let closeLink = document.getElementById("x");
+    
+
+    
+
+    closeLink.onclick = function () {
+        // modal.style.display = "none";
+        window.reset();
+    }
+
+    /* When the user clicks anywhere outside of the modal, close it*/
+    window.onclick = function (event) {
+        if (event.target == modal) {
+            // modal.style.display = "none";
+            window.reset();
+        }
+
+
+    }
+
+}

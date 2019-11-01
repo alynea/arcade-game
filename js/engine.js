@@ -13,6 +13,7 @@
  * writing app.js a little simpler to work with.
  */
 
+
 var Engine = (function (global) {
     /* Predefine the variables we'll be using within this scope,
      * create the canvas element, grab the 2D context for that canvas
@@ -123,7 +124,7 @@ var Engine = (function (global) {
      */
     function updateEntities(dt) {
         allEnemies.forEach(function (enemy) {
-            enemy.update(dt);
+            // enemy.update(dt);
         });
         player.update();
     }
@@ -196,7 +197,7 @@ var Engine = (function (global) {
         player.x = 200;
         player.y = 400;
     }
-
+    window.reset = reset;
     /* Go ahead and load all of the images we know we're going to need to
      * draw our game level. Then set init as the callback method, so that when
      * all of these images are properly loaded our game will start.
@@ -221,3 +222,4 @@ var Engine = (function (global) {
 
 
 })(this);
+

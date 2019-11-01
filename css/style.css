@@ -1,3 +1,21 @@
 body {
     text-align: center;
 }
+
+.close {
+    text-align: right;
+    color: black;
+}
+
+.modal-content{
+    background-color: #FFFF06;
+    height:150px;
+    padding-top: 20px;
+    
+}
+
+p .modal-message{
+    text-align : center;
+    background-color: aliceblue;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+}
