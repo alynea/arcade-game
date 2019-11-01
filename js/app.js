@@ -7,7 +7,7 @@ function setSpeed(bug) {
 }
 
 function randomSpeed() {
-    var x = Math.floor((Math.random() * 200) + 30);
+    var x = Math.floor((Math.random() * 250) + 30);
     return x
 }
 
@@ -78,13 +78,15 @@ window.allEnemies = allEnemies;
 // This class requires an updßate(), render() and
 // a handleInput() method.
 var Player = function () {
-    this.sprite = 'images/char-boy.png'
+    this.sprite = 'images/char-boy.png';
+    this.winner = false;
 }
 
 Player.prototype.update = function () {
-    console.log(`The player's y co-ordinates is ${this.y}`)
+    
     // check player's position to complete the game
-    if (this.y <= 10) {
+    if (this.y <= -10 && this.winner == false) {
+        this.winner = true;        
         clickButton();
     }
 };
@@ -133,8 +135,10 @@ document.addEventListener('keyup', function (e) {
 
 // A pop message appears after the game is finished
 
-function clickButton() {
+function clickButton() { 
+       
     document.getElementById("button").click();
+
 }
 
 window.onload = function () {
@@ -145,15 +149,13 @@ window.onload = function () {
 
     
 
-    closeLink.onclick = function () {
-        // modal.style.display = "none";
+    closeLink.onclick = function () {       
         window.reset();
     }
 
     /* When the user clicks anywhere outside of the modal, close it*/
     window.onclick = function (event) {
-        if (event.target == modal) {
-            // modal.style.display = "none";
+        if (event.target == modal) {            
             window.reset();
         }
 

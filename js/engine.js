@@ -124,7 +124,7 @@ var Engine = (function (global) {
      */
     function updateEntities(dt) {
         allEnemies.forEach(function (enemy) {
-            // enemy.update(dt);
+            enemy.update(dt);
         });
         player.update();
     }
@@ -196,6 +196,7 @@ var Engine = (function (global) {
     function reset() {
         player.x = 200;
         player.y = 400;
+        player.winner = false;
     }
     window.reset = reset;
     /* Go ahead and load all of the images we know we're going to need to
