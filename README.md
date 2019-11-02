@@ -10,7 +10,7 @@ Once the player reaches the water, a pop up message appears and you can play the
 
 **Game board**
 
-<img src="./screenshots/play.PNG" width="450">
+<img src="./Screenshot.png" width="450">
 
 ## Technical
 
