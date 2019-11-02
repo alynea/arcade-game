@@ -78,7 +78,7 @@ window.allEnemies = allEnemies;
 // This class requires an updßate(), render() and
 // a handleInput() method.
 var Player = function () {
-    this.sprite = 'images/char-boy.png';
+    this.sprite = 'images/char-princess-girl.png';
     this.winner = false;
 }
 
