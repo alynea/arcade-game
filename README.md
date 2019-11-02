@@ -29,6 +29,6 @@ This game is built as an npm project and mainly consists of the following assets
 OR
 
 ### Run Locally
-1.Clone this project: git clone (https://github.com/alynea/arcade-game)
-2.cd arcade-game-master
-3.Open index.html in a browser
+* Clone this project: git clone (https://github.com/alynea/arcade-game)
+* cd arcade-game-master
+* Open index.html in a browser
