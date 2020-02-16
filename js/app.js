@@ -86,7 +86,7 @@ Player.prototype.update = function () {
     
     // check player's position to complete the game
     if (this.y <= -10 && this.winner == false) {
-        this.winner = true;        
+        this.winner = true;
         clickButton();
     }
 };
@@ -135,8 +135,8 @@ document.addEventListener('keyup', function (e) {
 
 // A pop message appears after the game is finished
 
-function clickButton() { 
-       
+function clickButton() {
+
     document.getElementById("button").click();
 
 }
@@ -145,17 +145,17 @@ window.onload = function () {
 
     let modal = document.getElementById("myModal");
     let closeLink = document.getElementById("x");
-    
 
-    
 
-    closeLink.onclick = function () {       
+
+
+    closeLink.onclick = function () {
         window.reset();
     }
 
     /* When the user clicks anywhere outside of the modal, close it*/
     window.onclick = function (event) {
-        if (event.target == modal) {            
+        if (event.target == modal) {
             window.reset();
         }
 
