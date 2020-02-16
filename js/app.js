@@ -83,7 +83,7 @@ var Player = function () {
 }
 
 Player.prototype.update = function () {
-    
+
     // check player's position to complete the game
     if (this.y <= -10 && this.winner == false) {
         this.winner = true;
